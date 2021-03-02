@@ -1,0 +1,38 @@
+{
+  "name": "@wiredcraft/miniprogram-sparrow",
+  "version": "0.0.2",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wiredcraft/miniprogram-tools.git",
+    "directory": "packages/sparrow"
+  },
+  "license": "MIT",
+  "type": "module",
+  "types": "dist/index.d.ts",
+  "module": "dist/index.js",
+  "exports": {
+    "import": "./dist/index.js"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "jest",
+    "type": "tsc -d --emitDeclarationOnly --declarationDir dist",
+    "build": "esbuild src/index.ts --bundle --format=esm --outfile=dist/index.js",
+    "prepare": "yarn type && yarn build"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.20",
+    "@types/node": "^14.14.22",
+    "@types/wechat-miniprogram": "^3.2.0",
+    "dset": "^3.0.0",
+    "esbuild": "^0.8.49",
+    "esbuild-jest": "^0.4.0",
+    "jest": "^26.6.3",
+    "typescript": "^4.1.3"
+  }
+}

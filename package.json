@@ -1,0 +1,20 @@
+{
+  "name": "miniprogram-tools",
+  "private": "true",
+  "license": "MIT",
+  "scripts": {
+    "prepare": "lerna run prepare"
+  },
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ],
+    "nohoist": [
+      "**/@types/**"
+    ]
+  },
+  "prettier": {},
+  "devDependencies": {
+    "lerna": "^3.22.1"
+  }
+}

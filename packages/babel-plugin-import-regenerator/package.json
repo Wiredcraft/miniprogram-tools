@@ -1,0 +1,14 @@
+{
+  "name": "@wiredcraft/babel-plugin-import-regenerator",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wiredcraft/miniprogram-tools.git",
+    "directory": "packages/babel-plugin-import-regenerator"
+  },
+  "main": "src/index.js",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  }
+}
