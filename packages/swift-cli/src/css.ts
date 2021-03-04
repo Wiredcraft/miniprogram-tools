@@ -1,27 +1,24 @@
 import less from "less";
-import { relative, resolve } from "path";
+import { relative } from "path";
 import { promises } from "fs";
-import postcss, { AcceptedPlugin } from "postcss";
+import postcss, { ProcessOptions, Plugin } from "postcss";
+import postcssrc from "postcss-load-config";
 
 import { writeFileSafely } from "./utils";
 import * as config from "./config";
 
 const { readFile } = promises;
 
-let postcssPlugins: AcceptedPlugin[];
-async function loadPostcssConfig() {
-  if (postcssPlugins) return postcssPlugins;
+interface PostCSSConfigResult {
+  options: ProcessOptions;
+  plugins: Plugin[];
+}
 
-  const f = resolve(config.get("pwdAbs"), "postcss.config.js");
-  try {
-    postcssPlugins = require(f).plugins;
-  } catch (e) {
-    if (e.code === "MODULE_NOT_FOUND") {
-      postcssPlugins = [];
-    }
-    throw e;
-  }
-  return postcssPlugins;
+let postcssConfig: PostCSSConfigResult;
+
+async function resolvePostcssConfig() {
+  if (postcssConfig) return postcssConfig;
+  return postcssrc();
 }
 
 async function postcssProcess(
@@ -30,8 +27,9 @@ async function postcssProcess(
   outputPath: string
 ) {
   const inputPathRel = relative(config.get("pwdAbs"), inputPath);
-  const plugins = await loadPostcssConfig();
-  const ret1 = await postcss(plugins).process(input, {
+  const postcssConfig = await resolvePostcssConfig();
+  const ret1 = await postcss(postcssConfig.plugins).process(input, {
+    ...postcssConfig.options,
     from: inputPathRel,
     to: relative(config.get("dstDirAbs"), outputPath),
   });
