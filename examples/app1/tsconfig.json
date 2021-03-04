@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "noImplicitAny": false,
+    "removeComments": true,
+    "noEmit": true,
+    "lib": ["esnext"],
+    "preserveConstEnums": true,
+    "sourceMap": true,
+    "allowSyntheticDefaultImports": true,
+    "types": ["wechat-miniprogram"]
+  },
+  "include": ["src/**/*.ts"]
+}
