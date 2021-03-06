@@ -10,7 +10,7 @@
     "swift": "dist/bin.js"
   },
   "scripts": {
-    "prepare": "esbuild src/bin.ts --bundle --platform=node --target=node12 --outdir=dist '--external:pug' '--external:fsevents' '--external:postcss' '--external:@babel/core'",
+    "prepare": "esbuild src/bin.ts --bundle --platform=node --target=node12 --outdir=dist '--external:pug' '--external:fsevents' '--external:postcss' '--external:@babel/core' '--external:terser'",
     "test": "exit 0"
   },
   "files": [
