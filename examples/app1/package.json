@@ -1,7 +1,7 @@
 {
   "name": "app1",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "scripts": {
     "cleanup": "rm -rf dist",
     "start": "NODE_ENV=development yarn swift build -w",
@@ -19,7 +19,7 @@
     "@types/wechat-miniprogram": "^3.2.0",
     "@wiredcraft/babel-plugin-import-regenerator": "^0.0.2",
     "@wiredcraft/miniprogram-sparrow": "^0.0.3",
-    "@wiredcraft/miniprogram-swift-cli": "^0.0.4",
+    "@wiredcraft/miniprogram-swift-cli": "^0.0.5",
     "autoprefixer": "^10.2.1",
     "babel-plugin-module-resolver": "^4.1.0",
     "babel-plugin-transform-inline-environment-variables": "^0.4.3",
