@@ -1,11 +1,17 @@
+## Install
+
+```bash
+yarn add @wiredcraft/miniprogram-sparrow
+```
+
 ## Usage
 
 ```javascript
-# store/name.js
+// store/name.js
 
 import { atom } from "sparrow";
 
-export const firstName = atom('Jack');
+export const firstName = atom("Jack");
 
 // the action
 export function updateFirstName(name) {
@@ -14,9 +20,9 @@ export function updateFirstName(name) {
 ```
 
 ```javascript
-# components/hello.js
+// components/hello.js
 import { write, behavior as sparrow } from "sparrow";
-import { firstName, updateFirstName } from './store/name'
+import { firstName, updateFirstName } from "./store/name";
 
 Component({
   atoms: { firstName },
@@ -29,7 +35,7 @@ Component({
   },
   methods: {
     handleButtonOnTap() {
-      updateFirstName('Rose')
+      updateFirstName("Rose");
     },
   },
 });
