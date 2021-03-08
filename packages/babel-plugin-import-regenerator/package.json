@@ -1,6 +1,7 @@
 {
   "name": "@wiredcraft/babel-plugin-import-regenerator",
   "version": "0.0.2",
+  "description": "A Babel plugin to import regenerator-runtime on demand",
   "repository": {
     "type": "git",
     "url": "https://github.com/wiredcraft/miniprogram-tools.git",
