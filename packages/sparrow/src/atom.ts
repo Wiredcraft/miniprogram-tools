@@ -1,11 +1,10 @@
 function removeItem(arr: any[], idx: number) {
   arr.splice(idx, 1);
-  // arr[idx] = arr[arr.length - 1];
-  // arr.length = arr.length - 1;
 }
 
 type Instance = any;
-type Atom<Value> = {
+
+export type Atom<Value> = {
   read: () => Value;
   calc: () => void;
   subscribe: (inst: Instance | Atom<unknown>, key?: string) => void;
@@ -13,12 +12,12 @@ type Atom<Value> = {
 };
 type AnyAtom = Atom<unknown>;
 type AtomAffected = { instances: Instance[]; keys: string[]; atoms: AnyAtom[] };
-type Getter<T> = (a: Atom<T>) => T;
+type Getter = <T>(a: Atom<T>) => T;
 
 const affectedByAtom = new Map<AnyAtom, AtomAffected>();
 const pendingByInstance = new Map<Instance, any>();
 
-type FnDef<Value> = (get: Getter<Value>) => Value;
+type FnDef<Value> = (get: Getter) => Value;
 
 function isFnDef<Value>(def: Value | FnDef<Value>): def is FnDef<Value> {
   return typeof def === "function";
@@ -27,7 +26,7 @@ function isFnDef<Value>(def: Value | FnDef<Value>): def is FnDef<Value> {
 export function atom<Value>(fn: FnDef<Value>): Atom<Value>;
 export function atom<Value>(fn: Value): Atom<Value>;
 export function atom<Value>(def: Value | FnDef<Value>): Atom<Value> {
-  function get(a: Atom<Value>): Value {
+  function get<T>(a: Atom<T>): T {
     // atom a: a
     // atom b: config
     // "a" change will trigger "b" change
@@ -77,6 +76,7 @@ export function atom<Value>(def: Value | FnDef<Value>): Atom<Value> {
       const x = affectedByAtom.get(config as Atom<unknown>);
       if (!x) return;
       const idx = x.instances.indexOf(inst);
+      if (idx < 0) return;
       removeItem(x.instances, idx);
       removeItem(x.keys, idx);
     };
@@ -89,6 +89,8 @@ export function atom<Value>(def: Value | FnDef<Value>): Atom<Value> {
   return config;
 }
 
+let scheduled = false;
+
 export function write<Value>(atom: Atom<Value>, v: Value) {
   atom.write(v);
 
@@ -96,6 +98,19 @@ export function write<Value>(atom: Atom<Value>, v: Value) {
     affectedByAtom.get(atom as Atom<unknown>) || ({} as AtomAffected);
   const instances = affected.instances || [];
   const keys = affected.keys || [];
+
+  if (scheduled === false) {
+    scheduled = true;
+    wx.nextTick(() => {
+      scheduled = false;
+      for (let [inst, pending] of pendingByInstance) {
+        if (pending === null) continue;
+        pendingByInstance.set(inst, null);
+        console.log(inst.is, "setData", pending);
+        inst.setData(pending);
+      }
+    });
+  }
 
   for (let i = 0; i < instances.length; i++) {
     const inst = instances[i];
@@ -106,15 +121,6 @@ export function write<Value>(atom: Atom<Value>, v: Value) {
       pending = {};
       // its import to set the pending back to map
       pendingByInstance.set(inst, pending);
-
-      wx.nextTick(() => {
-        if (pending === null) return;
-        const x = pending;
-        pending = null;
-        pendingByInstance.set(inst, pending);
-        console.log(inst.is, "setData", x);
-        inst.setData(x);
-      });
     }
     // merging changed properties
     pending[keys[i]] = v;

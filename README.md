@@ -6,7 +6,7 @@
 
 ## Development
 
-```sh
+```bash
 # install dependencies
 yarn
 
@@ -18,4 +18,14 @@ yarn lerna bootstrap
 
 # you probably need to run this if you encounter the error "swift" not found
 ln -s $PWD/packages/swift-cli/dist/bin.js $PWD/node_modules/.bin/swift
+```
+
+## Publish
+
+```bash
+# bump version (it will bump version and create git tags)
+yarn lerna version --conventional-commits --no-private
+
+# publish to npm registry
+yarn lerna publish from-package
 ```
