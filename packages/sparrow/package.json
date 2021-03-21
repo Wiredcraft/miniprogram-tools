@@ -1,6 +1,6 @@
 {
   "name": "@wiredcraft/miniprogram-sparrow",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Experimental Recoil inspired state management",
   "repository": {
     "type": "git",
