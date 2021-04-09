@@ -18,14 +18,18 @@ const affectedByAtom = new Map<AnyAtom, AtomAffected>();
 const pendingByInstance = new Map<Instance, any>();
 
 type FnDef<Value> = (get: Getter) => Value;
+type AtomID = string;
 
 function isFnDef<Value>(def: Value | FnDef<Value>): def is FnDef<Value> {
   return typeof def === "function";
 }
 
-export function atom<Value>(fn: FnDef<Value>): Atom<Value>;
-export function atom<Value>(fn: Value): Atom<Value>;
-export function atom<Value>(def: Value | FnDef<Value>): Atom<Value> {
+export function atom<Value>(fn: FnDef<Value>, id?: AtomID): Atom<Value>;
+export function atom<Value>(fn: Value, id?: AtomID): Atom<Value>;
+export function atom<Value>(
+  def: Value | FnDef<Value>,
+  id?: AtomID
+): Atom<Value> {
   function get<T>(a: Atom<T>): T {
     // atom a: a
     // atom b: config
@@ -36,6 +40,9 @@ export function atom<Value>(def: Value | FnDef<Value>): Atom<Value> {
 
   let value: Value;
   const config = {} as Atom<Value>;
+
+  config.read = () => value;
+  config.toString = () => "Atom(" + id + ")";
 
   if (isFnDef(def)) {
     config.calc = () => {
@@ -48,7 +55,6 @@ export function atom<Value>(def: Value | FnDef<Value>): Atom<Value> {
   }
 
   config.calc();
-  config.read = () => value;
 
   config.subscribe = function (inst: Instance | AnyAtom, key?: string) {
     let affected = affectedByAtom.get(config as Atom<unknown>);
@@ -129,7 +135,7 @@ export function write<Value>(atom: Atom<Value>, v: Value) {
   // affected atoms
   const atoms = affected.atoms || [];
   for (let i = 0; i < atoms.length; i++) {
-    const a = atoms[0];
+    const a = atoms[i];
     a.calc();
     write(a, a.read());
   }
