@@ -17,7 +17,7 @@ const inputOptionsDefault = {
     commonjs(),
     replace({ __DEV__: "false", "process.env.NODE_ENV": "'production'" }),
     // https://github.com/rollup/plugins/tree/master/packages/babel#babelhelpers
-    babel({ babelHelpers: "bundled" }),
+    babel({ babelHelpers: "bundled", extensions: [".js", ".mjs", ".ts"] }),
   ],
 };
 

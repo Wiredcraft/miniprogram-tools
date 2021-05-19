@@ -2452,6 +2452,21 @@
   dependencies:
     "@types/yargs-parser" "*"
 
+"@wiredcraft/babel-plugin-import-regenerator@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@wiredcraft/babel-plugin-import-regenerator/-/babel-plugin-import-regenerator-0.0.2.tgz#1dcad14baf366c2c1efbf58be2933aeb7541ee93"
+  integrity sha512-p7myLQjrDjViIPuxnAxc8J4bKov3cO1taxya6ICYPDI95r+PllN4rXMXPztCboE9z4fM6+k5H3X/ydRZS155sQ==
+
+"@wiredcraft/miniprogram-sparrow@^0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@wiredcraft/miniprogram-sparrow/-/miniprogram-sparrow-0.0.3.tgz#8e22a70b3d1bafe9bc2988315190ddb7c3ade97d"
+  integrity sha512-ACVx0MAztybW1xpXebpdxVtLRv8GAQLHOhbf8O4Jdt39IxVOcrl78hU1B5YNw6GGxlNjdv67AgGyBZOAejmbaQ==
+
+"@wiredcraft/miniprogram-swift-cli@^0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@wiredcraft/miniprogram-swift-cli/-/miniprogram-swift-cli-0.0.5.tgz#f98e5ea9162115d9716cd761c00f489c60d0e6f5"
+  integrity sha512-xfRTpWvLX/Xw1s41f/Y2cMw/E3BqW/VeiGcMPOKpe1/I6A3dJZwpXfZvscPeMOV1WfTTar8tYuR5YwgSqSYcYw==
+
 "@zkochan/cmd-shim@^3.1.0":
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/@zkochan/cmd-shim/-/cmd-shim-3.1.0.tgz#2ab8ed81f5bb5452a85f25758eb9b8681982fd2e"
