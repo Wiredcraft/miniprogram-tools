@@ -5,6 +5,7 @@ import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import replace from "@rollup/plugin-replace";
 import babel from "@rollup/plugin-babel";
+import json from "@rollup/plugin-json";
 
 import * as config from "./config";
 import * as minifier from "./minify";
@@ -14,6 +15,7 @@ const inputOptionsDefault = {
   treeshake: true,
   plugins: [
     resolve(),
+    json(),
     commonjs(),
     replace({ __DEV__: "false", "process.env.NODE_ENV": "'production'" }),
     // https://github.com/rollup/plugins/tree/master/packages/babel#babelhelpers

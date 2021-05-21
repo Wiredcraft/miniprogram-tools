@@ -12,6 +12,7 @@ const options = [
   ["-l, --level", "Log level (err|info|debug)", "debug"],
   ["-w, --watch", "Watch file change", false],
   ["-o, --output-dir", "The target directory (miniprogram root)", "dist"],
+  ["--type-check", "Enable type checking(works only if you have TypeScript files)", true],
 ];
 
 const commands = [
