@@ -21,6 +21,7 @@ type BuildOptions = {
   level: keyof Logger;
   watch: boolean;
   "output-dir": string;
+  "type-check": boolean;
 };
 
 export async function buildCmd(opts: BuildOptions) {
@@ -28,11 +29,13 @@ export async function buildCmd(opts: BuildOptions) {
 
   try {
     setLogLevel(opts.level);
-    const buildMeta = await build(config);
+    const buildMeta = await build(config, opts);
     printFacts(config, process.env);
     if (opts.watch) {
       initWatcher(config);
-      if (buildMeta.hasTsFile) typeCheckWatch();
+      if (buildMeta.hasTsFile && opts["type-check"] === true) {
+        typeCheckWatch();
+      }
     }
   } catch (e) {
     console.log(e);
@@ -67,7 +70,10 @@ async function initWatcher(conf: typeof config) {
 
 type BuildMeta = { hasTsFile: boolean };
 
-async function build(conf: { get: typeof config.get }): Promise<BuildMeta> {
+async function build(
+  conf: { get: typeof config.get },
+  opts: BuildOptions
+): Promise<BuildMeta> {
   const { srcDir, dstDir, srcDirAbs, dstDirAbs, pwdAbs } = conf.get();
 
   const t0 = new Date();
@@ -89,7 +95,7 @@ async function build(conf: { get: typeof config.get }): Promise<BuildMeta> {
   const hasTsFile = anyMatch(absFiles, (x) => /\.ts$/.test(x));
 
   const works = [processFiles(absFiles, config)];
-  if (hasTsFile) {
+  if (hasTsFile && opts["type-check"] === true) {
     works.push(typeCheck());
   }
 
