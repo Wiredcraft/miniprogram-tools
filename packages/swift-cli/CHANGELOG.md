@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.1.0](https://github.com/wiredcraft/miniprogram-tools/compare/@wiredcraft/miniprogram-swift-cli@0.0.6...@wiredcraft/miniprogram-swift-cli@0.1.0) (2021-06-01)
+
+
+### Features
+
+* Add a type check flag to skip type checking ([4575b90](https://github.com/wiredcraft/miniprogram-tools/commit/4575b908dffde16c1c978c222406bf3219bccc82))
+
+
+
+
+
 ## [0.0.6](https://github.com/wiredcraft/miniprogram-tools/compare/@wiredcraft/miniprogram-swift-cli@0.0.5...@wiredcraft/miniprogram-swift-cli@0.0.6) (2021-03-08)
 
 
