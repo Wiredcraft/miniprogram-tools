@@ -39,6 +39,9 @@ export async function buildCmd(opts: BuildOptions) {
     }
   } catch (e) {
     console.log(e);
+    if (!opts.watch) {
+      process.exit(1);
+    }
   }
 }
 
