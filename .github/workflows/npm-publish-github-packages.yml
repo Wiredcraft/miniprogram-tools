@@ -22,6 +22,6 @@ jobs:
           registry-url: https://npm.pkg.github.com/
           scope: "@wiredcraft"
       - run: yarn
-      - run: yarn lerna exec -- yarn publish
+      - run: yarn lerna exec -- yarn publish --no-private
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
