@@ -23,6 +23,6 @@ jobs:
           scope: "@wiredcraft"
       - run: npm i -g zx
       - run: yarn
-      - run: zx publish.mjs
+      - run: zx scripts/publish.mjs
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
