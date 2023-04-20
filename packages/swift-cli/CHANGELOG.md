@@ -3,6 +3,60 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.8](https://github.com/wiredcraft/miniprogram-tools/compare/@wiredcraft/miniprogram-swift-cli@0.1.7...@wiredcraft/miniprogram-swift-cli@0.1.8) (2023-04-20)
+
+**Note:** Version bump only for package @wiredcraft/miniprogram-swift-cli
+
+
+
+
+
+## [0.1.7](https://github.com/wiredcraft/miniprogram-tools/compare/@wiredcraft/miniprogram-swift-cli@0.1.5...@wiredcraft/miniprogram-swift-cli@0.1.7) (2023-04-20)
+
+**Note:** Version bump only for package @wiredcraft/miniprogram-swift-cli
+
+
+
+
+
+## [0.1.6](https://github.com/wiredcraft/miniprogram-tools/compare/@wiredcraft/miniprogram-swift-cli@0.1.5...@wiredcraft/miniprogram-swift-cli@0.1.6) (2023-04-20)
+
+**Note:** Version bump only for package @wiredcraft/miniprogram-swift-cli
+
+
+
+
+
+## [0.1.5](https://github.com/wiredcraft/miniprogram-tools/compare/@wiredcraft/miniprogram-swift-cli@0.1.4...@wiredcraft/miniprogram-swift-cli@0.1.5) (2023-04-20)
+
+**Note:** Version bump only for package @wiredcraft/miniprogram-swift-cli
+
+
+
+## [0.1.4](https://github.com/wiredcraft/miniprogram-tools/compare/@wiredcraft/miniprogram-swift-cli@0.1.2...@wiredcraft/miniprogram-swift-cli@0.1.4) (2023-04-20)
+
+**Note:** Version bump only for package @wiredcraft/miniprogram-swift-cli
+
+
+
+
+
+## [0.1.3](https://github.com/wiredcraft/miniprogram-tools/compare/@wiredcraft/miniprogram-swift-cli@0.1.2...@wiredcraft/miniprogram-swift-cli@0.1.3) (2023-04-20)
+
+**Note:** Version bump only for package @wiredcraft/miniprogram-swift-cli
+
+
+
+
+
+## [0.1.2](https://github.com/wiredcraft/miniprogram-tools/compare/@wiredcraft/miniprogram-swift-cli@0.1.1...@wiredcraft/miniprogram-swift-cli@0.1.2) (2023-04-20)
+
+**Note:** Version bump only for package @wiredcraft/miniprogram-swift-cli
+
+
+
+
+
 ## [0.1.1](https://github.com/wiredcraft/miniprogram-tools/compare/@wiredcraft/miniprogram-swift-cli@0.1.0...@wiredcraft/miniprogram-swift-cli@0.1.1) (2021-06-24)
 
 **Note:** Version bump only for package @wiredcraft/miniprogram-swift-cli
