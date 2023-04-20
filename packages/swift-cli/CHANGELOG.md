@@ -9,8 +9,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-
-
 ## [0.1.4](https://github.com/wiredcraft/miniprogram-tools/compare/@wiredcraft/miniprogram-swift-cli@0.1.2...@wiredcraft/miniprogram-swift-cli@0.1.4) (2023-04-20)
 
 **Note:** Version bump only for package @wiredcraft/miniprogram-swift-cli
