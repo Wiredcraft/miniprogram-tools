@@ -1,6 +1,6 @@
 {
   "name": "@wiredcraft/miniprogram-swift-cli",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "WeChat miniprogram build CLI with sensible defaults",
   "repository": {
     "type": "git",
