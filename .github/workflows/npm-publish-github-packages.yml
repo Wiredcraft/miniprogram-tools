@@ -21,7 +21,8 @@ jobs:
           node-version: 16
           registry-url: https://npm.pkg.github.com/
           scope: "@wiredcraft"
+      - run: npm i -g zx
       - run: yarn
-      - run: yarn lerna exec -- yarn publish --no-private --since
+      - run: zx publish.mjs
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
