@@ -11,3 +11,7 @@ const plugins = [
   // some other plugins
 ];
 ```
+
+## Publish
+
+to NPM & GPM(GITHUB Package Registry)

@@ -40,3 +40,7 @@ Component({
   },
 });
 ```
+
+## Publish
+
+to NPM & GPM(GITHUB Package Registry)

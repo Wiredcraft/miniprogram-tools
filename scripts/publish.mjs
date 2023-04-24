@@ -27,5 +27,5 @@ if (pkgJsonFilepath) {
   console.log(`find package in "${pkgJsonFilepath}"`);
   
   cd(path.dirname(pkgJsonFilepath));
-  await $`npm publish`;
+  await $`npm publish --access public`;
 }
